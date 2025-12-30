@@ -1,0 +1,61 @@
+messages:
+
+  player-only:
+    de: "&cDieser Befehl kann nur von Spielern verwendet werden."
+    en: "&cThis command can only be used by players."
+
+  no-permission:
+    de: "&cKeine Berechtigung."
+    en: "&cYou don't have permission."
+
+  usage:
+    de: "&7Verwendung: &e/camera create|delete|menu|reload|save|load"
+    en: "&7Usage: &e/camera create|delete|menu|reload|save|load"
+
+  camera-created:
+    de: "&aKamera '&b%camera%&a' in Region '&e%region%&a' erstellt."
+    en: "&aCamera '&b%camera%&a' created in region '&e%region%&a'."
+
+  camera-deleted:
+    de: "&cKamera '&b%camera%&c' wurde gelöscht."
+    en: "&cCamera '&b%camera%&c' has been deleted."
+
+  region-deleted:
+    de: "&cAlle Kameras in der Region '&e%region%&c' wurden gelöscht."
+    en: "&cAll cameras in region '&e%region%&c' have been deleted."
+
+  camera-not-found:
+    de: "&cDiese Kamera existiert nicht."
+    en: "&cThis camera does not exist."
+
+  region-empty:
+    de: "&cIn dieser Region gibt es keine Kameras."
+    en: "&cThere are no cameras in this region."
+
+  cameras-reloaded:
+    de: "&aKameras wurden neu geladen."
+    en: "&aCameras have been reloaded."
+
+  cameras-saved:
+    de: "&aKameras wurden gespeichert."
+    en: "&aCameras have been saved."
+
+  cameras-loaded:
+    de: "&aKameras wurden geladen."
+    en: "&aCameras have been loaded."
+
+  camera-enter:
+    de: "&7Kamera &b%camera% &7| Rechtsklick=Nächste | Linksklick=Vorherige | Shift=Zurück"
+    en: "&7Camera &b%camera% &7| RightClick=Next | LeftClick=Previous | Shift=Exit"
+
+  camera-switch:
+    de: "&7Kamera: &b%camera%"
+    en: "&7Camera: &b%camera%"
+
+  camera-missing-anymore:
+    de: "&cDiese Kamera existiert nicht mehr."
+    en: "&cThis camera no longer exists."
+
+  region-missing-anymore:
+    de: "&cIn dieser Region gibt es keine Kameras mehr."
+    en: "&cThere are no cameras in this region anymore."

@@ -64,6 +64,10 @@ public class ConfigManager {
         return config.getBoolean("camera.freeze-position", true);
     }
 
+    public boolean isLockViewDirectionEnabled() {
+        return config.getBoolean("camera.lock-view-direction", true);
+    }
+
     // Menu settings
     public Material getMenuMaterial() {
         String materialName = config.getString("camera.menu.material", "BLUE_CONCRETE");

@@ -88,7 +88,7 @@ public class DreamCam extends JavaPlugin implements CommandExecutor, Listener, T
         // Register command
         PluginCommand command = getCommand("camera");
         if (command == null) {
-            getLogger().severe("Command 'camera' fehlt in plugin.yml!");
+            getLogger().severe("Command 'camera' is missing in plugin.yml!");
             getServer().getPluginManager().disablePlugin(this);
             return;
         }
@@ -107,13 +107,14 @@ public class DreamCam extends JavaPlugin implements CommandExecutor, Listener, T
 
     @Override
     public void onDisable() {
-        // Cleanly exit camera mode for online players
+        // Exit camera mode for all online players
         for (Player p : Bukkit.getOnlinePlayers()) {
             if (inCameraMode.contains(p.getUniqueId())) {
                 exitCameraMode(p);
             }
         }
         saveCamerasToConfig();
+        getLogger().info("DreamCam has been disabled!");
     }
 
     // ===== Command handling =====
@@ -165,7 +166,7 @@ public class DreamCam extends JavaPlugin implements CommandExecutor, Listener, T
     // ===== Command handlers =====
 
     private boolean handleCreateCommand(Player player, String[] args) {
-        if (!player.hasPermission("dreamcam.admin")) {
+        if (!player.hasPermission("dreamcam.admin.create")) {
             player.sendMessage(messageManager.getNoPermission());
             return true;
         }
@@ -189,7 +190,7 @@ public class DreamCam extends JavaPlugin implements CommandExecutor, Listener, T
     }
 
     private boolean handleDeleteCommand(Player player, String[] args) {
-        if (!player.hasPermission("dreamcam.admin")) {
+        if (!player.hasPermission("dreamcam.admin.delete")) {
             player.sendMessage(messageManager.getNoPermission());
             return true;
         }
@@ -227,6 +228,11 @@ public class DreamCam extends JavaPlugin implements CommandExecutor, Listener, T
     }
 
     private boolean handleMenuCommand(Player player, String[] args) {
+        if (!player.hasPermission("dreamcam.use")) {
+            player.sendMessage(messageManager.getNoPermission());
+            return true;
+        }
+
         if (args.length < 2) {
             player.sendMessage(messageManager.getUsageMenu());
             return true;
@@ -246,7 +252,7 @@ public class DreamCam extends JavaPlugin implements CommandExecutor, Listener, T
     }
 
     private boolean handleReloadCommand(Player player) {
-        if (!player.hasPermission("dreamcam.admin")) {
+        if (!player.hasPermission("dreamcam.admin.reload")) {
             player.sendMessage(messageManager.getNoPermission());
             return true;
         }
@@ -260,7 +266,7 @@ public class DreamCam extends JavaPlugin implements CommandExecutor, Listener, T
     }
 
     private boolean handleSaveCommand(Player player) {
-        if (!player.hasPermission("dreamcam.admin")) {
+        if (!player.hasPermission("dreamcam.admin.save")) {
             player.sendMessage(messageManager.getNoPermission());
             return true;
         }
@@ -271,7 +277,7 @@ public class DreamCam extends JavaPlugin implements CommandExecutor, Listener, T
     }
 
     private boolean handleLoadCommand(Player player) {
-        if (!player.hasPermission("dreamcam.admin")) {
+        if (!player.hasPermission("dreamcam.admin.reload")) {
             player.sendMessage(messageManager.getNoPermission());
             return true;
         }
@@ -421,16 +427,27 @@ public class DreamCam extends JavaPlugin implements CommandExecutor, Listener, T
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onPlayerMove(PlayerMoveEvent e) {
-        if (!configManager.isFreezePositionEnabled()) return;
-
         Player p = e.getPlayer();
         if (!inCameraMode.contains(p.getUniqueId())) return;
 
-        // Prevent position changes but allow looking around
-        if (e.getFrom().getX() != e.getTo().getX()
-                || e.getFrom().getY() != e.getTo().getY()
-                || e.getFrom().getZ() != e.getTo().getZ()) {
-            e.setTo(e.getFrom());
+        // Freeze position
+        if (configManager.isFreezePositionEnabled()) {
+            if (e.getFrom().getX() != e.getTo().getX()
+                    || e.getFrom().getY() != e.getTo().getY()
+                    || e.getFrom().getZ() != e.getTo().getZ()) {
+                e.setTo(e.getFrom());
+            }
+        }
+
+        // Lock view direction (yaw and pitch)
+        if (configManager.isLockViewDirectionEnabled()) {
+            Location from = e.getFrom();
+            Location to = e.getTo();
+            if (to.getYaw() != from.getYaw() || to.getPitch() != from.getPitch()) {
+                to.setYaw(from.getYaw());
+                to.setPitch(from.getPitch());
+                e.setTo(to);
+            }
         }
     }
 

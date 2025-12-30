@@ -4,38 +4,38 @@
 
 # General messages
 prefix: "&8[&bDreamCam&8]&r "
-no-permission: "&cKeine Berechtigung."
-player-only: "&cDieser Befehl kann nur von Spielern verwendet werden."
-unknown-command: "&cUnbekannter Befehl. Verwendung: /camera create|delete|menu|reload|save|load ..."
+no-permission: "&cYou don't have permission to do that."
+player-only: "&cThis command can only be used by players."
+unknown-command: "&cUnknown command. Usage: /camera create|delete|menu|reload|save|load ..."
 
 # Command usage messages
 usage:
-  main: "&eVerwendung: /camera create|delete|menu|reload|save|load (Kameraname) (Regionsname)"
-  create: "&eVerwendung: /camera create <Kameraname> <Regionsname>"
-  delete: "&eVerwendung: /camera delete <Kameraname|Regionsname>"
-  menu: "&eVerwendung: /camera menu <Regionsname>"
+  main: "&eUsage: /camera create|delete|menu|reload|save|load (camera name) (region name)"
+  create: "&eUsage: /camera create <camera name> <region name>"
+  delete: "&eUsage: /camera delete <camera name|region name>"
+  menu: "&eUsage: /camera menu <region name>"
 
 # Camera management messages
 camera:
-  created: "&aKamera '&e{camera}&a' in der Region '&e{region}&a' wurde erstellt."
-  deleted: "&aKamera '&e{camera}&a' wurde gelöscht."
-  region-deleted: "&aAlle Kameras in der Region '&e{region}&a' wurden gelöscht."
-  not-found: "&cEs wurde keine Kamera oder Region mit dem Namen '&e{name}&c' gefunden."
-  no-cameras-in-region: "&cIn der Region '&e{region}&c' gibt es keine Kameras."
-  does-not-exist: "&cDiese Kamera existiert nicht mehr."
-  no-cameras-anymore: "&cIn dieser Region gibt es keine Kameras mehr."
+  created: "&aCamera '&e{camera}&a' in region '&e{region}&a' has been created."
+  deleted: "&aCamera '&e{camera}&a' has been deleted."
+  region-deleted: "&aAll cameras in region '&e{region}&a' have been deleted."
+  not-found: "&cNo camera or region found with the name '&e{name}&c'."
+  no-cameras-in-region: "&cThere are no cameras in region '&e{region}&c'."
+  does-not-exist: "&cThis camera no longer exists."
+  no-cameras-anymore: "&cThere are no more cameras in this region."
 
 # Configuration messages
 config:
-  reloaded: "&aKameras wurden neu geladen."
-  saved: "&aKameras wurden gespeichert."
-  loaded: "&aKameras wurden geladen."
+  reloaded: "&aCameras have been reloaded."
+  saved: "&aCameras have been saved."
+  loaded: "&aCameras have been loaded."
 
 # Camera mode messages
 camera-mode:
-  action-bar-enter: "&fKamera &b{camera}&f | Rechtsklick=Nächste, Linksklick=Vorherige, Shift=Zurück"
-  action-bar-switch: "&fKamera: &b{camera}&f | Shift=Zurück"
-  menu-title: "Kameras in {region}"
+  action-bar-enter: "&fCamera &b{camera}&f | Right-Click=Next, Left-Click=Previous, Shift=Exit"
+  action-bar-switch: "&fCamera: &b{camera}&f | Shift=Exit"
+  menu-title: "Cameras in {region}"
 
 # Menu item
 menu:

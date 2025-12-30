@@ -2,7 +2,48 @@ name: DreamCam
 version: 1.0
 main: com.jape.dreamcam.DreamCam
 api-version: 1.21
+author: Jape
+description: A camera system plugin for Minecraft servers
+
 commands:
   camera:
-    description: Steuerung der Kamera
-    usage: /camera
+    description: Manage and view cameras
+    usage: /camera <create|delete|menu|reload|save|load> [args]
+    permission: dreamcam.use
+
+permissions:
+  dreamcam.*:
+    description: Grants all DreamCam permissions
+    default: op
+    children:
+      dreamcam.use: true
+      dreamcam.admin: true
+
+  dreamcam.use:
+    description: Allows using cameras and opening camera menus
+    default: true
+
+  dreamcam.admin:
+    description: Allows creating, deleting, and managing cameras
+    default: op
+    children:
+      dreamcam.admin.create: true
+      dreamcam.admin.delete: true
+      dreamcam.admin.reload: true
+      dreamcam.admin.save: true
+
+  dreamcam.admin.create:
+    description: Allows creating new cameras
+    default: op
+
+  dreamcam.admin.delete:
+    description: Allows deleting cameras
+    default: op
+
+  dreamcam.admin.reload:
+    description: Allows reloading the plugin configuration
+    default: op
+
+  dreamcam.admin.save:
+    description: Allows saving cameras to config
+    default: op

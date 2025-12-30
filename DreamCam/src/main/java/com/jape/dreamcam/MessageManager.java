@@ -173,7 +173,7 @@ public class MessageManager {
         Map<String, String> replacements = new HashMap<>();
         replacements.put("region", region);
         return ChatColor.translateAlternateColorCodes('&',
-            messagesConfig.getString("camera-mode.menu-title", "Kameras in {region}")
+            messagesConfig.getString("camera-mode.menu-title", "Cameras in {region}")
                 .replace("{region}", region));
     }
 

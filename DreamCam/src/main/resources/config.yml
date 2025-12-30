@@ -11,17 +11,20 @@ camera:
   night-vision:
     enabled: true
     duration: 72000  # Duration in ticks (72000 = 1 hour)
-    amplifier: 0
-    ambient: true
-    particles: false
+    amplifier: 0     # Effect amplifier level (0-255)
+    ambient: true    # Reduced particle effects
+    particles: false # Show particles
 
   # Prevent player movement while in camera mode
   freeze-position: true
 
+  # Lock camera view direction (prevents looking around)
+  lock-view-direction: true
+
   # Menu settings
   menu:
-    material: BLUE_CONCRETE  # Item material for camera menu
-    rows-per-page: 1  # How many rows to use (1-6), automatically calculated if 0
+    material: BLUE_CONCRETE  # Item material for camera menu icons
+    rows-per-page: 0         # How many rows to use (1-6), automatically calculated if 0
 
 # Cameras storage
 # This section is automatically managed by the plugin

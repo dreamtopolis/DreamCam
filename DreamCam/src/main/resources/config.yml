@@ -1,0 +1,29 @@
+# ===================================
+# DreamCam Configuration
+# ===================================
+
+# Camera settings
+camera:
+  # Default gamemode when entering camera mode (SPECTATOR recommended)
+  gamemode: SPECTATOR
+
+  # Enable night vision effect while in camera mode
+  night-vision:
+    enabled: true
+    duration: 72000  # Duration in ticks (72000 = 1 hour)
+    amplifier: 0
+    ambient: true
+    particles: false
+
+  # Prevent player movement while in camera mode
+  freeze-position: true
+
+  # Menu settings
+  menu:
+    material: BLUE_CONCRETE  # Item material for camera menu
+    rows-per-page: 1  # How many rows to use (1-6), automatically calculated if 0
+
+# Cameras storage
+# This section is automatically managed by the plugin
+# Do not edit manually unless you know what you're doing
+cameras: {}

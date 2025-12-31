@@ -76,12 +76,11 @@ All messages can be customized in `messages.yml` with color code support.
 
 ## Use Cases
 
-- **Server Tours** - Create guided tours of builds and landmarks
 - **Security** - Monitor important areas from fixed viewpoints
 - **Events** - Capture different angles during server events
 - **Showcases** - Display builds from perfect camera angles
-- **Adventure Maps** - Add cinematic experiences to custom maps
 - **Mini-games** - Spectate games from strategic camera positions
+- **Themeparks** - Let players see guests in the queue or on the attraction
 
 ## Installation
 

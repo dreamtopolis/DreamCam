@@ -20,6 +20,9 @@ public class ConfigManager {
         plugin.reloadConfig();
         config = plugin.getConfig();
     }
+    public void saveConfig() {
+        plugin.saveConfig();
+    }
 
     public void reloadConfig() {
         loadConfig();
@@ -78,8 +81,8 @@ public class ConfigManager {
             return Material.BLUE_CONCRETE;
         }
     }
-
     public int getMenuRowsPerPage() {
         return config.getInt("camera.menu.rows-per-page", 0);
     }
 }
+

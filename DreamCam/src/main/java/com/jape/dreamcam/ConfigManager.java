@@ -20,9 +20,6 @@ public class ConfigManager {
         plugin.reloadConfig();
         config = plugin.getConfig();
     }
-    public void saveConfig() {
-        plugin.saveConfig();
-    }
 
     public void reloadConfig() {
         loadConfig();
@@ -30,6 +27,10 @@ public class ConfigManager {
 
     public FileConfiguration getConfig() {
         return config;
+    }
+
+    public void saveConfig() {
+        plugin.saveConfig();
     }
 
     // Camera settings
@@ -67,10 +68,6 @@ public class ConfigManager {
         return config.getBoolean("camera.freeze-position", true);
     }
 
-    public boolean isLockViewDirectionEnabled() {
-        return config.getBoolean("camera.lock-view-direction", true);
-    }
-
     // Menu settings
     public Material getMenuMaterial() {
         String materialName = config.getString("camera.menu.material", "BLUE_CONCRETE");
@@ -81,8 +78,4 @@ public class ConfigManager {
             return Material.BLUE_CONCRETE;
         }
     }
-    public int getMenuRowsPerPage() {
-        return config.getInt("camera.menu.rows-per-page", 0);
-    }
 }
-
